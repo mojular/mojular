@@ -1,0 +1,24 @@
+{
+  "name": "mojular",
+  "version": "0.8.0",
+  "authors": [
+    "Tyom Semonov <inspiro@gmail.com>",
+    "Dom Smith <teneightfive.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "main": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "html5shiv": "~3.7.3",
+    "json2": "*",
+    "jquery": "1.11.1",
+    "lodash": "~3.10.1"
+  }
+}
