@@ -31,4 +31,8 @@ var forOwn = require('lodash/object/forOwn');
       }
     }
   };
+
+  $(function() {
+    window.Mojular.init();
+  })
 }());
