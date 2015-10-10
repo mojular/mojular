@@ -1,8 +1,7 @@
 var $ = require('jquery');
 var forOwn = require('lodash/object/forOwn');
 
-window.Mojular = window.Mojular || {
-  isInitialised: false,
+window.Mojular = {
   Modules: {},
   Helpers: {},
   Events: $({}),
@@ -14,8 +13,6 @@ window.Mojular = window.Mojular || {
 
     // trigger initial render event
     this.Events.trigger('render');
-
-    this.isInitialised = true;
   },
 
   // safe logging
@@ -31,7 +28,3 @@ window.Mojular = window.Mojular || {
     }
   }
 };
-
-$(function() {
-  !window.Mojular.isInitialised && window.Mojular.init();
-})
