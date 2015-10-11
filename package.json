@@ -1,0 +1,29 @@
+{
+  "name": "mojular",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mojular/mojular.git"
+  },
+  "author": {
+    "name": "Tyom Semonov",
+    "email": "inspiro@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mojular/mojular/issues"
+  },
+  "homepage": "https://github.com/mojular/mojular#readme",
+  "dependencies": {
+    "JSON2": "^0.1.0",
+    "html5shiv": "^3.7.3",
+    "jquery": "^1.11.1",
+    "lodash": "^3.10.1"
+  }
+}
