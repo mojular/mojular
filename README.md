@@ -93,6 +93,17 @@ gulp.task('scripts', function(callback) {
 });
 ```
 
+### Rails
+
+Webpack needs to be run every time JS files are changed. Either run `webpack --watch` in a separate terminal tab or Use something like [Foreman](https://github.com/ddollar/foreman).
+
+```ruby
+web: rails server
+webpack: webpack --config webpack.config.js --watch --colors
+```
+
+Then `foreman start` to run both Rails server and Webpack watch in one place.
+
 ### In project files
 
 Import files using CommonJS or AMD style.
