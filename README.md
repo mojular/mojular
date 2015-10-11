@@ -62,9 +62,19 @@ Loaders module contains [json-loader](https://github.com/webpack/json-loader) wh
 
 A useful Dedupe Plugin is also loaded to ensure there is no duplicated imports in built outputs, making the resulting output as lean as possible.
 
+To minify JS include UglifyJS plugin:
+
+```js
+plugins: [
+  new webpack.optimize.UglifyJsPlugin({ minimize: true })
+]
+```
+
 To compile the bundles run `webpack` in the same directory as your Webpack config.
 
-It can also be integrated into your project task runner, such as Gulp:
+### Gulp
+
+Webpack can also be integrated into your project task runner, such as Gulp:
 
 ```js
 var webpack = require('webpack');
