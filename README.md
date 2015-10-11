@@ -50,7 +50,6 @@ module.exports = {
     new webpack.optimize.DedupePlugin()
   ]
 };
-
 ```
 
 First we create [entry points](https://webpack.github.io/docs/multiple-entry-points.html) for Webpack. These are our main project’s JS file, all other JS files should be imported via CommmonJS or RequireJS via Webpack’s built-in loaders. JSON2 and html5shiv are a separate entry point as need to be built as separate file.
@@ -83,6 +82,20 @@ gulp.task('scripts', function(callback) {
   });
 });
 ```
+
+### In project files
+
+Import files using CommonJS or AMD style.
+
+```js
+require('mojular');
+
+// other imports/app logic
+
+Mojular.init();
+```
+
+Mojular must be initialised after all other files have been loaded. It will set up basic structure for Mojular app and initialise all modules in `Mojular.Modules` object.
 
 ## External modules
 
