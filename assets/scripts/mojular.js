@@ -1,7 +1,7 @@
 var $ = require('jquery');
 var forOwn = require('lodash/object/forOwn');
 
-window.Mojular = {
+window.Mojular = window.Mojular || {
   Modules: {},
   Helpers: {},
   Events: $({}),
