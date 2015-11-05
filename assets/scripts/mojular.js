@@ -8,7 +8,9 @@ window.Mojular = window.Mojular || {
 
   init: function () {
     forOwn(this.Modules, function(module) {
-      typeof module.init === 'function' && module.init()
+      if(typeof module.init === 'function') {
+        module.init();
+      }
     });
 
     // trigger initial render event

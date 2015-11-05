@@ -1,3 +1,5 @@
+'use strict';
+
 var isArray = require('lodash/lang/isArray');
 var util = require('util');
 
@@ -14,7 +16,7 @@ function prefixPaths(paths, packageName) {
 module.exports = {
   getSassPaths: function(packageMeta) {
     if(!packageMeta) {
-      console.log('WARNING:', 'Mojular component is missing package.json reference')
+      console.log('WARNING:', 'Mojular component is missing package.json reference');
       return;
     }
     var packageName = packageMeta.name;
@@ -31,7 +33,6 @@ module.exports = {
       return prefixPaths(sassPaths, packageName);
     } catch(e) {
       console.log('WARNING:', '`paths` property is missing in package.json of', packageName);
-      return;
     }
   }
 };
