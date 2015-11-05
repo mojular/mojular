@@ -3,10 +3,6 @@
 var isArray = require('lodash/lang/isArray');
 var util = require('util');
 
-try {
-  require('./assets/scripts/mojular');
-} catch(e) {}
-
 function prefixPaths(paths, packageName) {
   return paths.map(function(path) {
     return util.format('node_modules/%s/%s', packageName, path);
@@ -34,5 +30,7 @@ module.exports = {
     } catch(e) {
       console.log('WARNING:', '`paths` property is missing in package.json of', packageName);
     }
-  }
+  },
+
+  heisenberg: require('./heisenberg')
 };

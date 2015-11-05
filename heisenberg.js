@@ -1,17 +1,20 @@
+'use strict';
+
 var $ = require('jquery');
 var forOwn = require('lodash/object/forOwn');
 var isArray = require('lodash/lang/isArray');
-var each = require('lodash/collection/each');
-var merge = require('lodash/object/merge');
+var extend = require('lodash/object/extend');
+var transform = require('lodash/object/transform');
+
 
 module.exports = {
   Modules: {},
   Helpers: {},
   Events: $({}),
 
-  init: function () {
+  init: function() {
     forOwn(this.Modules, function(module) {
-      if(typeof module.init === 'function') {
+      if (typeof module.init === 'function') {
         module.init();
       }
     });
@@ -21,27 +24,24 @@ module.exports = {
   },
 
   // safe logging
-  log: function (msg) {
+  log: function() {
     if (window && window.console) {
-      window.console.log(msg);
+      window.console.log.apply(console, arguments);
     }
   },
 
-  dir: function (obj) {
+  dir: function() {
     if (window && window.console) {
-      window.console.dir(obj);
+      window.console.dir.apply(console, arguments);
     }
   },
 
   install: function(modules) {
-    var self = this;
-
-    if(isArray(modules)) {
-      each(modules, function(module) {
-        merge(self.Modules, module);
-      });
+    if (isArray(modules)) {
+      transform(modules, extend, this.Modules);
+      return this;
     } else {
-      console.error('Invalid syntax. Should be an array of modules to install.')
+      console.error('Invalid syntax. Should be an array of modules to install.');
     }
   }
 };
