@@ -109,11 +109,15 @@ Then `foreman start` to run both Rails server and Webpack watch in one place.
 Import files using CommonJS or AMD style.
 
 ```js
-require('mojular');
+var Mojular = require('mojular');
 
-// other imports/app logic
-
-Mojular.init();
+Mojular
+  // include Mojular JS modules
+  .use([
+    require('mojular-govuk-elements'),
+    require('mojular-moj-elements')
+  ])
+  .init();
 ```
 
 Mojular must be initialised after all other files have been loaded. It will set up basic structure for Mojular app and initialise all modules in `Mojular.Modules` object.
