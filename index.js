@@ -1,36 +1,50 @@
 'use strict';
 
+var $ = require('jquery');
+var forOwn = require('lodash/object/forOwn');
 var isArray = require('lodash/lang/isArray');
-var util = require('util');
-
-function prefixPaths(paths, packageName) {
-  return paths.map(function(path) {
-    return util.format('node_modules/%s/%s', packageName, path);
-  });
-}
+var isPlainObject = require('lodash/lang/isPlainObject');
+var extend = require('lodash/object/extend');
+var transform = require('lodash/object/transform');
 
 module.exports = {
-  getSassPaths: function(packageMeta) {
-    if(!packageMeta) {
-      console.log('WARNING:', 'Mojular component is missing package.json reference');
-      return;
-    }
-    var packageName = packageMeta.name;
-    try {
-      var sassPaths = packageMeta.paths.sass;
-      if(!sassPaths) {
-        console.log('WARNING:', '`sass` property should exist in `paths` property of', packageName);
-        return;
+  Modules: {},
+  Helpers: {},
+  Events: $({}),
+
+  init: function() {
+    var self = this;
+    forOwn(this.Modules, function(module) {
+      if (typeof module.init === 'function') {
+        module.base = self;
+        module.init();
       }
-      if(!isArray(sassPaths)) {
-        console.log('WARNING:', '`paths` property in ', packageName, 'should be an array of paths');
-        return;
-      }
-      return prefixPaths(sassPaths, packageName);
-    } catch(e) {
-      console.log('WARNING:', '`paths` property is missing in package.json of', packageName);
+    });
+    // trigger initial render event
+    this.Events.trigger('render');
+  },
+
+  // safe logging
+  log: function() {
+    if (window && window.console) {
+      window.console.log.apply(console, arguments);
     }
   },
 
-  heisenberg: require('./heisenberg')
+  dir: function() {
+    if (window && window.console) {
+      window.console.dir.apply(console, arguments);
+    }
+  },
+
+  use: function(modules) {
+    if (isArray(modules)) {
+      transform(modules, extend, this.Modules);
+    } else if(isPlainObject(modules)) {
+      extend(this.Modules, modules);
+    } else {
+      throw('Pass either single module or an array of modules.\ne.g. `.use(require(\'./modules/some-module\')`');
+    }
+    return this;
+  }
 };
