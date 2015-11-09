@@ -124,8 +124,8 @@ Mojular must be initialised after all other files have been loaded. It will set 
 
 ## External modules
 
-A [number of external modules](https://github.com/mojular/moj-elements/tree/master/assets/scripts/modules) exist and expanding. A module would start its life in your project sourceand when it becomes generic enough and useful in other use cases it can be extracted added into one of existing [Mojular repos](https://github.com/mojular) or a new repo can be created.
+A [number of external modules](https://github.com/mojular/moj-elements/tree/master/modules) exist and expanding. A module would start its life in your project sourceand when it becomes generic enough and useful in other use cases it can be extracted added into one of existing [Mojular repos](https://github.com/mojular) or a new repo can be created.
 
-[govuk-elements](https://github.com/mojular/govuk-elements) being the most generic and meant for uses across government sites. [moj-elements](https://github.com/mojular/moj-elements/tree/dev/assets/scripts/modules) are modules that currently are used within [MoJ organisation](https://github.com/ministryofjustice). But due to their compatibility (built on top of [Heisenberg base](https://github.com/heisenbergjs)) they are interchangeable and can be plugged in to most projects which use Mojular.
+[govuk-elements](https://github.com/mojular/govuk-elements/tree/master/modules) being the most generic and meant for uses across government sites. [moj-elements](https://github.com/mojular/moj-elements/tree/master/modules) are modules that currently are used within [MoJ organisation](https://github.com/ministryofjustice). But due to their compatibility (built on top of [Heisenberg base](https://github.com/heisenbergjs)) they are interchangeable and can be plugged in to most projects which use Mojular.
 
 Mojular repos may contain supporting styles, images or even templates.
