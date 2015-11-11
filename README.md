@@ -9,7 +9,7 @@ It includes a number of dependencies which are used in a typical project and exp
 Install into your project via NPM:
 
 ```
-npm install https://github.com/mojular/mojular/tarball/master --save
+npm install mojular --save
 ```
 
 This has only been tested with Webpack so far, you can install it globally:
