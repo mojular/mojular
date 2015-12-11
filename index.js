@@ -24,19 +24,6 @@ module.exports = {
     this.Events.trigger('render');
   },
 
-  // safe logging
-  log: function() {
-    if (window && window.console) {
-      window.console.log.apply(console, arguments);
-    }
-  },
-
-  dir: function() {
-    if (window && window.console) {
-      window.console.dir.apply(console, arguments);
-    }
-  },
-
   use: function(modules) {
     if (isArray(modules)) {
       transform(modules, extend, this.Modules);
